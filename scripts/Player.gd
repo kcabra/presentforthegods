@@ -13,26 +13,31 @@ var tolerance_jump = 0
 var tolerance_ground = 0
 var grounded : bool = false
 
-#mimir
+#items
+var has_mimir = true
+var has_prometeus = true
 var mimir = false
-signal mimir_visble
-signal mimir_hidden
+var prometeus = false
 
 func _input(event):
-	# mimir test (clean up later)
-	if event.is_action_pressed("ui_accept") and mov_vector.x == 0:
-		emit_signal("mimir_visble")
+	# mimir action
+	if event.is_action_pressed("item_mimir") and mov_vector.x == 0:
 		mimir = true
-	if ( mimir and
-			(event.is_action_released("ui_accept") or mov_vector.x != 0) ):
-		emit_signal("mimir_hidden")
+	elif ( mimir and
+			(event.is_action_released("item_accept") or mov_vector.x != 0) ):
 		mimir = false
+	
+	# prometeus action
+	if event.is_action_pressed("item_prometeus"):
+		prometeus = true
+	elif prometeus and event.is_action_released("item_prometeus"):
+		prometeus = false
 
 func _physics_process(delta):
 	# side movement
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("move_right"):
 		mov_vector.x = 1
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("move_left"):
 		mov_vector.x = -1
 	else:
 		mov_vector.x = 0
@@ -40,7 +45,7 @@ func _physics_process(delta):
 	# jump
 	if is_on_floor():
 		tolerance_ground = tolerance_time
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("move_up"):
 		tolerance_jump = tolerance_time
 	if tolerance_jump > 0 and tolerance_ground > 0:
 		mov_vector.y = jump_size

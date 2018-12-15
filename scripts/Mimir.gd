@@ -9,14 +9,8 @@ func _ready():
 	self.modulate.a = 0
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_mimir_visble():
-	self.modulate.a = 1
-
-
-func _on_Player_mimir_hidden():
-	self.modulate.a = 0
+func _process(delta):
+	if get_parent().get_node("Player").mimir:
+		self.modulate.a = 1
+	else:
+		self.modulate.a = 0
