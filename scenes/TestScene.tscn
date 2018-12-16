@@ -1,26 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://PLACEHOLDERS/player.png" type="Texture" id=2]
-[ext_resource path="res://scripts/pivot.gd" type="Script" id=3]
-[ext_resource path="res://resources/dirt_tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://PLACEHOLDERS/mimir-platforms.png" type="Texture" id=5]
-[ext_resource path="res://scripts/Mimir.gd" type="Script" id=6]
-[ext_resource path="res://scripts/prometeus.gd" type="Script" id=7]
-[ext_resource path="res://scripts/promethean_pillar.gd" type="Script" id=8]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/dirt_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://PLACEHOLDERS/mimir-platforms.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Mimir.gd" type="Script" id=4]
+[ext_resource path="res://assets/bg/ceu.png" type="Texture" id=5]
+[ext_resource path="res://assets/bg/nuvens.png" type="Texture" id=6]
+[ext_resource path="res://assets/bg/terra.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-extents = Vector2( 13.0883, 12.9566 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=2]
 
 0/name = "mimir-platforms.png 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -30,7 +25,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -38,80 +33,48 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="TestScene" type="Node2D"]
 position = Vector2( 1034, 64 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 218.537, 254.102 )
-script = ExtResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
-
-[node name="Pivot" type="Position2D" parent="Player"]
-script = ExtResource( 3 )
-
-[node name="CameraOffset" type="Position2D" parent="Player/Pivot"]
-position = Vector2( 245.379, -0.378937 )
-
-[node name="Camera2D" type="Camera2D" parent="Player/Pivot/CameraOffset"]
-current = true
-smoothing_enabled = true
-drag_margin_top = 0.1
-drag_margin_bottom = 0.1
-editor_draw_drag_margin = true
+[node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="Ground" type="TileMap" parent="."]
 position = Vector2( -0.59874, 0.59874 )
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 65587, 0, 0, 65591, 0, 0, 131123, 0, 0, 131127, 0, 0, 196659, 0, 0, 196663, 0, 0, 262195, 0, 0, 262199, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458800, 0, 0, 458810, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524336, 0, 0, 524337, 0, 0, 524338, 0, 0, 524339, 0, 0, 524340, 0, 0, 524341, 0, 0, 524342, 0, 0, 524343, 0, 0, 524344, 0, 0, 524345, 0, 0, 524346, 0, 0, 655359, 0, 0, 589826, 536870913, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 1, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720895, 0, 0, 655360, 536870912, 0, 655361, 536870912, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 851965, 0, 0, 786456, 0, 0, 917501, 0, 0, 917502, 0, 0, 917503, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851991, 0, 0, 851992, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0 )
 
 [node name="Mimir" type="TileMap" parent="."]
 position = Vector2( -0.59874, 0.598755 )
-tile_set = SubResource( 3 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 327707, 0, 0, 327708, 0, 0, 327709, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458796, 0, 0, 458797, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524332, 0, 0, 589857, 0, 0, 589858, 0, 0, 589859, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0 )
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 
-[node name="Prometeus" type="Tween" parent="."]
-playback_process_mode = 0
-script = ExtResource( 7 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Column1" type="Position2D" parent="Prometeus"]
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 editor/display_folded = true
-position = Vector2( 720, 318.102 )
-script = ExtResource( 8 )
+motion_scale = Vector2( 0, 0 )
 
-[node name="TileMap" type="TileMap" parent="Prometeus/Column1"]
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+texture = ExtResource( 5 )
 
-[node name="Column2" type="Position2D" parent="Prometeus"]
-editor/display_folded = true
-position = Vector2( 560, 400 )
-script = ExtResource( 8 )
-time = 3.0
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.2 )
 
-[node name="TileMap" type="TileMap" parent="Prometeus/Column2"]
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Clouds"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+offset = Vector2( 0, -120 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8000, 711 )
 
-[node name="Column3" type="Position2D" parent="Prometeus"]
-editor/display_folded = true
-position = Vector2( 432, 208 )
-script = ExtResource( 8 )
-time = 1.6
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.5 )
 
-[node name="TileMap" type="TileMap" parent="Prometeus/Column3"]
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountains"]
+texture = ExtResource( 7 )
+offset = Vector2( 0, 200 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 600 )
 
