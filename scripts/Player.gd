@@ -6,6 +6,7 @@ export (int) var speed = 300
 export (int) var jump_size = -400
 export (int) var gravity = 30
 export (int) var max_gravity = 300
+onready var sprite = get_node("Sprite")
 
 #player gaze direction
 var playergaze : Vector2
@@ -23,28 +24,16 @@ var prometeus = false
 #debug
 var save_pos
 
-func _input(event):
-	# mimir action
-	if event.is_action_pressed("item_mimir") and mov_vector.x == 0:
-		mimir = true
-	elif ( mimir and
-			(event.is_action_released("item_accept") or mov_vector.x != 0) ):
-		mimir = false
-	
-	# prometeus action
-	if event.is_action_pressed("item_prometeus"):
-		prometeus = true
-	elif prometeus and event.is_action_released("item_prometeus"):
-		prometeus = false
-
 func _physics_process(delta):
 	# side movement
 	if Input.is_action_pressed("move_right"):
 		mov_vector.x = 1
 		playergaze.x = 1
+		sprite.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		mov_vector.x = -1
 		playergaze.x = -1
+		sprite.flip_h = true
 	else:
 		mov_vector.x = 0
 	
@@ -61,7 +50,11 @@ func _physics_process(delta):
 		tolerance_jump = tolerance_time
 	if tolerance_jump > 0 and tolerance_ground > 0:
 		mov_vector.y = jump_size
-		
+	if !is_on_floor():
+		sprite.animation = "jump"
+	else:
+		sprite.animation = "default"
+
 	#dynamic jump
 	if !Input.is_action_pressed("move_up"):
 		if mov_vector.y < 0:
