@@ -61,7 +61,7 @@ func _physics_process(delta):
 	#dynamic jump
 	if !Input.is_action_pressed("move_up"):
 		if mov_vector.y < 0:
-			mov_vector.y = mov_vector.y*0 #pra deixar mais smooth eh so mudar esse numero
+			mov_vector.y = mov_vector.y*0.5 #pra deixar mais smooth eh so mudar esse numero
 	
 	# time pass
 	tolerance_ground -= delta
