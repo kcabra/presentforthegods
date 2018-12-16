@@ -12,7 +12,9 @@ export (int) var jump_size = -530
 export (int) var gravity = 50
 export (int) var max_gravity = 600
 
-#player gaze direction
+#camera
+onready var camera = $"Pivot/CameraOffset/Camera2D"
+export (bool) var player_camera_active = true
 var playergaze : Vector2
 
 #movement tolerance
@@ -25,6 +27,11 @@ var save_pos
 
 func _ready():
 	save_pos = self.position
+	
+func _process(delta):
+	if camera.current != player_camera_active:
+		camera.current = player_camera_active
+		camera.align()
 
 func _physics_process(delta):
 	# side movement and player gaze
