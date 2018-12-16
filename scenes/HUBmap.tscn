@@ -15,11 +15,10 @@ region_rect = Rect2( 725, 621, 513, 59 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform1"]
 position = Vector2( -188, -12 )
-polygon = PoolVector2Array( 443, -9, 432, 5, 425, 22, 372, 27, 288, 27, 209, 25, 172, 27, 101, 28, 41, 28, -42.258, 21.5124, -45, 9, -50, -1, -61, -9 )
+polygon = PoolVector2Array( 424, -10, 432, 5, 425, 22, 372, 27, 288, 27, 209, 25, 172, 27, 101, 28, 41, 28, -42.258, 21.5124, -46, 7, -35, -10 )
 
 [node name="Platform2" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -391.2, 162 )
+position = Vector2( -373, 127 )
 mode = 1
 
 [node name="Sprite" type="Sprite" parent="Platform2"]
@@ -28,10 +27,9 @@ region_enabled = true
 region_rect = Rect2( 839, 497, 269, 52 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform2"]
-polygon = PoolVector2Array( -111, 7, -116, -7, -124, -20, -131, -24, 131, -24, 125, -16, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
+polygon = PoolVector2Array( -111, 7, -114.8, -1, -100.8, -23, 106.2, -23, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
 
 [node name="Platform3" type="RigidBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 416, 149 )
 mode = 1
 
@@ -41,10 +39,9 @@ region_enabled = true
 region_rect = Rect2( 839, 497, 269, 52 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform3"]
-polygon = PoolVector2Array( -111, 7, -116, -7, -124, -20, -131, -24, 131, -24, 125, -16, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
+polygon = PoolVector2Array( -111, 7, -114.8, -1, -100.8, -23, 106.2, -23, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
 
 [node name="Platform4" type="RigidBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 164, 51 )
 mode = 1
 
@@ -54,10 +51,9 @@ region_enabled = true
 region_rect = Rect2( 839, 497, 269, 52 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform4"]
-polygon = PoolVector2Array( -111, 7, -116, -7, -124, -20, -131, -24, 131, -24, 125, -16, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
+polygon = PoolVector2Array( -111, 7, -114.8, -1, -100.8, -23, 106.2, -23, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
 
 [node name="Platform5" type="RigidBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -153, 39 )
 mode = 1
 
@@ -69,5 +65,5 @@ region_rect = Rect2( 839, 497, 269, 52 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform5"]
 scale = Vector2( 0.4, 1 )
-polygon = PoolVector2Array( -111, 7, -116, -7, -124, -20, -131, -24, 131, -24, 125, -16, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
+polygon = PoolVector2Array( -111, 7, -114.8, -1, -100.8, -23, 106.2, -23, 118, -2, 113, 7, 84, 11, 55, 13, 22, 13, -32, 13, -77, 11 )
 
