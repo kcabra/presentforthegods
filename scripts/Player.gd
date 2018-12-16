@@ -17,10 +17,11 @@ var tolerance_ground = 0
 var grounded : bool = false
 
 #items
-var has_mimir = true
-var has_prometeus = true
 var mimir = false
 var prometeus = false
+
+#debug
+var save_pos
 
 func _input(event):
 	# mimir action
@@ -72,5 +73,7 @@ func _physics_process(delta):
 	mov_vector = move_and_slide( mov_vector, Vector2(0, -1) )
 	
 	# reset pos (debug)
-	if Input.is_action_just_pressed("ui_cancel"):
-		position = Vector2(218, 254)
+	if Input.is_action_just_pressed("ui_page_up"):
+		save_pos = self.position
+	if Input.is_action_just_pressed("ui_page_down"):
+		position = save_pos
