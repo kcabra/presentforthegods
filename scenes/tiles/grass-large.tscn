@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/tiles/nord_tiles.png" type="Texture" id=1]
+
+[node name="grass-large" type="RigidBody2D"]
+position = Vector2( 190, 95 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 76, 38 )
+polygon = PoolVector2Array( 82, -52, -235, -52, -243, -48, -245, -45, -244, -41, -239, -35, -233, -29, -217, -28, 81, -28, 86, -32, 90, -39, 89, -45, 86, -49 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 19, 57, 342, 38 )
+

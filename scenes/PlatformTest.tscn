@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/tiles/grass-small.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/grass-large.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/mimir-small.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/mimir-large.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/MapObjects/MimirRevealArea.gd" type="Script" id=5]
+[ext_resource path="res://scripts/MapObjects/cabeca-mimir.gd" type="Script" id=6]
+[ext_resource path="res://assets/PLACEHOLDER_mascara_de_mimir.png" type="Texture" id=7]
+[ext_resource path="res://scenes/TestBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 66, 57 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+radius = 19.0
+
+[node name="PlatformTest" type="Node2D"]
+
+[node name="TestMap" type="Node" parent="."]
+
+[node name="grass-small" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( -1292, 57 )
+
+[node name="grass-small2" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( -1121, 0 )
+
+[node name="grass-small3" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( -874, 0 )
+
+[node name="grass-small4" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( -589, 0 )
+
+[node name="grass-small5" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( 874, -72 )
+rotation = -4.71239
+
+[node name="grass-small6" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( 874, -152 )
+rotation = -5.49779
+
+[node name="grass-small7" parent="TestMap" instance=ExtResource( 1 )]
+position = Vector2( 798, -152 )
+rotation = -7.06858
+
+[node name="grass-large" parent="TestMap" instance=ExtResource( 2 )]
+position = Vector2( -323, 95 )
+
+[node name="grass-large2" parent="TestMap" instance=ExtResource( 2 )]
+position = Vector2( 0, 114 )
+
+[node name="grass-large3" parent="TestMap" instance=ExtResource( 2 )]
+position = Vector2( 323, 95 )
+
+[node name="grass-large4" parent="TestMap" instance=ExtResource( 2 )]
+position = Vector2( 722, -19 )
+
+[node name="grass-large5" parent="TestMap" instance=ExtResource( 2 )]
+position = Vector2( 2090, 110 )
+
+[node name="grass-large6" parent="TestMap" instance=ExtResource( 2 )]
+position = Vector2( 1786, 112 )
+
+[node name="mimir-small" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 589, 152 )
+scale = Vector2( 1.40609, 1 )
+collision_layer = 3
+
+[node name="mimir-small2" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 760, 209 )
+
+[node name="mimir-small5" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 1558, 129 )
+
+[node name="mimir-small6" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 2247, 54.9999 )
+rotation = -1.5708
+scale = Vector2( 1, 0.56 )
+
+[node name="mimir-small8" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 2166, -38 )
+rotation = -2.61799
+scale = Vector2( 1.79818, 0.336075 )
+
+[node name="mimir-small9" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 2014, -38 )
+rotation = -3.66519
+scale = Vector2( 1.79818, 0.336075 )
+
+[node name="mimir-small7" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 2090, 1.9999 )
+rotation = -3.14159
+scale = Vector2( 3.08, 0.32 )
+
+[node name="mimir-small3" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 950, 167 )
+
+[node name="mimir-small4" parent="TestMap" instance=ExtResource( 3 )]
+position = Vector2( 1102, 131 )
+
+[node name="mimir-large" parent="TestMap" instance=ExtResource( 4 )]
+position = Vector2( 1330, 95 )
+
+[node name="AreaMimirReveal" type="Area2D" parent="TestMap"]
+modulate = Color( 0.584314, 0.533333, 1, 1 )
+position = Vector2( 827, -76 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestMap/AreaMimirReveal"]
+shape = SubResource( 1 )
+
+[node name="AreaMimirReveal2" type="Area2D" parent="TestMap"]
+modulate = Color( 0.584314, 0.533333, 1, 1 )
+position = Vector2( 2090, 59 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestMap/AreaMimirReveal2"]
+shape = SubResource( 1 )
+
+[node name="cabeçademimir" type="Area2D" parent="TestMap"]
+modulate = Color( 0.584314, 0.533333, 1, 1 )
+position = Vector2( 2090, 58.9999 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestMap/cabeçademimir"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="TestMap/cabeçademimir"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, -3.8147e-06 )
+

@@ -1,12 +1,16 @@
 extends KinematicBody2D
 
+const death_height = 700
+
+#item and progression
+var has_mimir = false
+
 #basic movement
 var mov_vector : Vector2
 export (int) var speed = 300
-export (int) var jump_size = -400
-export (int) var gravity = 30
-export (int) var max_gravity = 300
-onready var sprite = get_node("Sprite")
+export (int) var jump_size = -530
+export (int) var gravity = 50
+export (int) var max_gravity = 600
 
 #player gaze direction
 var playergaze : Vector2
@@ -15,25 +19,21 @@ var playergaze : Vector2
 export (float) var tolerance_time = 0.2
 var tolerance_jump = 0
 var tolerance_ground = 0
-var grounded : bool = false
-
-#items
-var mimir = false
-var prometeus = false
 
 #debug
 var save_pos
 
+func _ready():
+	save_pos = self.position
+
 func _physics_process(delta):
-	# side movement
+	# side movement and player gaze
 	if Input.is_action_pressed("move_right"):
 		mov_vector.x = 1
 		playergaze.x = 1
-		sprite.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		mov_vector.x = -1
 		playergaze.x = -1
-		sprite.flip_h = true
 	else:
 		mov_vector.x = 0
 	
@@ -50,10 +50,6 @@ func _physics_process(delta):
 		tolerance_jump = tolerance_time
 	if tolerance_jump > 0 and tolerance_ground > 0:
 		mov_vector.y = jump_size
-	if !is_on_floor():
-		sprite.animation = "jump"
-	else:
-		sprite.animation = "default"
 
 	#dynamic jump
 	if !Input.is_action_pressed("move_up"):
@@ -69,6 +65,10 @@ func _physics_process(delta):
 	if mov_vector.y < max_gravity:
 		mov_vector.y += gravity
 	mov_vector = move_and_slide( mov_vector, Vector2(0, -1) )
+	
+	#death
+	if position.y >= death_height:
+		position = save_pos
 	
 	# reset pos (debug)
 	if Input.is_action_just_pressed("ui_page_up"):

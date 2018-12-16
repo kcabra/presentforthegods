@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mimir-platforms.png-78ae7ce67f67d25aa44b286cbcd4c664.stex"
+path="res://.import/pj.png-872e3f129e37e66ea3f9b6d61872a6d3.stex"
 
 [deps]
 
-source_file="res://PLACEHOLDERS/mimir-platforms.png"
-dest_files=[ "res://.import/mimir-platforms.png-78ae7ce67f67d25aa44b286cbcd4c664.stex" ]
+source_file="res://assets/player/pj.png"
+dest_files=[ "res://.import/pj.png-872e3f129e37e66ea3f9b6d61872a6d3.stex" ]
 
 [params]
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/MapObjects/MimirObject.gd" type="Script" id=1]
+[ext_resource path="res://assets/tiles/nord_tiles.png" type="Texture" id=2]
+
+
+[node name="mimir-small" type="RigidBody2D"]
+position = Vector2( 76, 152 )
+mode = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -53, -10, -50, -14, -45, -15, 45, -15, 50, -13, 53, -10, 54, -7, 52, 9, 49, 13, -44, 13, -47, 10, -49, 6, -52, -1, -53, -7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 19, 95, 114, 38 )
+

@@ -15,13 +15,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="extrajam"
-run/main_scene="res://scenes/TestScene.tscn"
+config/name="present-of-the-gods"
+run/main_scene="res://scenes/PlatformTest.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=800
+window/size/width=960
+window/size/height=540
 
 [importer_defaults]
 
