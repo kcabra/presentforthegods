@@ -7,6 +7,9 @@ export (int) var jump_size = -400
 export (int) var gravity = 30
 export (int) var max_gravity = 300
 
+#player gaze direction
+var playergaze : Vector2
+
 #movement tolerance
 export (float) var tolerance_time = 0.2
 var tolerance_jump = 0
@@ -37,10 +40,18 @@ func _physics_process(delta):
 	# side movement
 	if Input.is_action_pressed("move_right"):
 		mov_vector.x = 1
+		playergaze.x = 1
 	elif Input.is_action_pressed("move_left"):
 		mov_vector.x = -1
+		playergaze.x = -1
 	else:
 		mov_vector.x = 0
+	
+	# player looking down
+	if Input.is_action_pressed("ui_down"):
+		playergaze.y = 1
+	else:
+		playergaze.y = -1
 	
 	# jump
 	if is_on_floor():
