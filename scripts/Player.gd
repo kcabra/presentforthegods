@@ -52,7 +52,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"):
 		playergaze.y = 1
 	else:
-		playergaze.y = -1
+		playergaze.y = 0
 	
 	# jump
 	if is_on_floor():
@@ -61,6 +61,11 @@ func _physics_process(delta):
 		tolerance_jump = tolerance_time
 	if tolerance_jump > 0 and tolerance_ground > 0:
 		mov_vector.y = jump_size
+		
+	#dynamic jump
+	if !Input.is_action_pressed("move_up"):
+		if mov_vector.y < 0:
+			mov_vector.y = mov_vector.y*0 #pra deixar mais smooth eh so mudar esse numero
 	
 	# time pass
 	tolerance_ground -= delta
