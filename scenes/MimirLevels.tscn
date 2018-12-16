@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/tiles/mimir-large.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/grass-small.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/mimir-small.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/grass-large.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/items/cabeçademimir.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mimir Map" type="Node" parent="."]
+
+[node name="mimir-large" parent="Mimir Map" instance=ExtResource( 1 )]
+position = Vector2( 1269.99, 290.238 )
+
+[node name="grass-small2" parent="Mimir Map" instance=ExtResource( 2 )]
+position = Vector2( 13.7221, 315.416 )
+
+[node name="mimir-small3" parent="Mimir Map" instance=ExtResource( 3 )]
+position = Vector2( 1019.75, -42.782 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="mimir-small5" parent="Mimir Map" instance=ExtResource( 3 )]
+position = Vector2( 1650, 270 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="mimir-small4" parent="Mimir Map" instance=ExtResource( 3 )]
+position = Vector2( 1460, 270 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="mimir-small2" parent="Mimir Map" instance=ExtResource( 3 )]
+position = Vector2( 1045.53, 193.034 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="mimir-small" parent="Mimir Map" instance=ExtResource( 3 )]
+position = Vector2( 453.863, 98.8463 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="grass-large3" parent="Mimir Map" instance=ExtResource( 4 )]
+position = Vector2( 1326.26, -93.2093 )
+
+[node name="grass-large5" parent="Mimir Map" instance=ExtResource( 4 )]
+position = Vector2( 1910.08, 202.218 )
+
+[node name="grass-large2" parent="Mimir Map" instance=ExtResource( 4 )]
+position = Vector2( 764.5, 80.5004 )
+
+[node name="grass-large" parent="Mimir Map" instance=ExtResource( 4 )]
+position = Vector2( 138.669, 83.3977 )
+
+[node name="grass-small4" parent="Mimir Map" instance=ExtResource( 2 )]
+position = Vector2( 1593.4, 9.05891 )
+scale = Vector2( 2, 1 )
+
+[node name="grass-large4" parent="Mimir Map" instance=ExtResource( 4 )]
+position = Vector2( 1695.69, -151.757 )
+rotation = -1.5708
+
+[node name="grass-small" parent="Mimir Map" instance=ExtResource( 2 )]
+position = Vector2( -159.333, 195.215 )
+
+[node name="grass-small3" parent="Mimir Map" instance=ExtResource( 2 )]
+position = Vector2( 1486, -41.0601 )
+rotation = 1.5708
+
+[node name="cabeçademimir" parent="Mimir Map" instance=ExtResource( 5 )]
+position = Vector2( 16.7677, 255.305 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+
