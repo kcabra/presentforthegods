@@ -4,9 +4,19 @@ onready var player = get_parent()
 
 var last_mimir_pos
 var mimir_active = false
+var prometeus_active = false
 var on_mimir = false
 
 func _input(event):
+	if player.has_prometeus:
+		if event.is_action_pressed("item_prometeus"):
+			get_tree().call_group("prometeus_object", "move")
+			prometeus_active = true
+		
+		if prometeus_active and event.is_action_released("item_prometeus"):
+			get_tree().call_group("prometeus_object", "stop")
+			prometeus_active = false
+
 	if player.has_mimir:
 		# mimir start conditions:
 		#  (         button pressed            )     (     on floor     )     (not on mimir platform)

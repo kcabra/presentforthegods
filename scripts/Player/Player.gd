@@ -4,6 +4,7 @@ const death_height = 700
 
 #item and progression
 var has_mimir = false
+var has_prometeus = true
 
 #basic movement
 var mov_vector : Vector2

@@ -17,6 +17,9 @@ var current = true # true is going, false is comming back
 onready var tween = Tween.new()
 
 func _ready():
+	# group
+	add_to_group("prometeus_object")
+	
 	# tween
 	add_child(tween)
 	
@@ -37,14 +40,6 @@ func _ready():
 	
 	tween_next()
 	stop()
-
-func _process(delta):
-	if Input.is_action_pressed("ui_accept"):
-		is_active = true
-		move()
-	if Input.is_action_just_released("ui_accept"):
-		is_active = false
-		stop()
 
 func tween_next():
 	var initial

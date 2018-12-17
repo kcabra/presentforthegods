@@ -4,20 +4,20 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 85, 12 )
+extents = Vector2( 154, 12 )
 
-[node name="grass_medium" type="StaticBody2D"]
+[node name="grass_large" type="StaticBody2D"]
 position = Vector2( 183, 36 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -1 )
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 38, 190, 38 )
+region_rect = Rect2( 0, 0, 323, 38 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, -1 )
+shape = SubResource( 1 )
 

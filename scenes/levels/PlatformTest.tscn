@@ -10,7 +10,6 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/NordBackground.tscn" type="PackedScene" id=9]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 66, 57 )
@@ -22,7 +21,6 @@ radius = 19.0
 [node name="PlatformTest" type="Node2D"]
 
 [node name="TestMap" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="grass-small" parent="TestMap" instance=ExtResource( 1 )]
 position = Vector2( -1292, 57 )
