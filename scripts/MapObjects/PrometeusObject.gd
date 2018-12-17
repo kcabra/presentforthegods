@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 enum Directions {UP_DOWN, LEFT_RIGHT}
 export (Directions) var orientation = Directions.UP_DOWN
-export (int) var float_amount = 5 # how much it moves to each side (in squares
+export (float, 0, 10, 0.5) var float_amount = 5 # how much it moves to each side (in squares
 export (float) var time = 1.0 # how long it takes to go from one edge to the other
 export (bool) var invert = false
-export (float, 0, 1) var offset = 0 # offset in percentage from 0 to 1
+export (float, 0, 1) var offset = 0.5 # offset in percentage from 0 to 1
 var is_active = false
 
 var init_pos
@@ -15,6 +15,7 @@ var bot_edge
 var current = true # true is going, false is comming back
 
 onready var tween = Tween.new()
+var first_run = true
 
 func _ready():
 	# group
@@ -54,7 +55,11 @@ func tween_next():
 			final = bot_edge
 	
 	current = !current
-	position = initial
+	if first_run:
+		var first_pos_vec = (final - initial) * offset
+		initial = initial + first_pos_vec
+		position = initial
+		first_run = !first_run
 	
 	tween.interpolate_property(self, "position", initial, final, time,
 			Tween.TRANS_SINE, Tween.EASE_IN_OUT)

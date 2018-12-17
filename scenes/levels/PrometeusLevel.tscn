@@ -1,0 +1,173 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GreekBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/greek/grass_medium.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/greek/prometeus_column.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tiles/greek/prometeus_column_BIG.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tiles/greek/grass_small.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/tiles/greek/grass_large.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/tiles/greek/regular_column.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/MapObjects/PrometeusShrine.gd" type="Script" id=9]
+[ext_resource path="res://scripts/MapObjects/Checkpoint.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 38, 57 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 38, 38 )
+
+[node name="PrometeusLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 172, -57 )
+
+[node name="GreekBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="platforms" type="Node" parent="."]
+
+[node name="grass_medium" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( 171, 1 )
+
+[node name="grass_medium3" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( -816, 9 )
+
+[node name="grass_medium2" parent="platforms" instance=ExtResource( 3 )]
+position = Vector2( -171, 1 )
+
+[node name="prometeus5" parent="platforms" instance=ExtResource( 4 )]
+editor/display_folded = false
+position = Vector2( -1065, 67 )
+rotation = 0.114547
+time = 2.0
+invert = true
+
+[node name="prometeus6" parent="platforms" instance=ExtResource( 4 )]
+editor/display_folded = false
+position = Vector2( -1799, 38 )
+rotation = -0.261799
+float_amount = 3.0
+time = 2.0
+invert = true
+offset = 0.0
+
+[node name="prometeus2" parent="platforms" instance=ExtResource( 4 )]
+position = Vector2( -475, 0 )
+rotation = 1.57079
+orientation = 1
+time = 0.7
+
+[node name="prometeus3" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -1368, 42 )
+rotation = 0.0567555
+scale = Vector2( 1, 1.36 )
+time = 2.0
+offset = 1.0
+
+[node name="prometeus4" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -1216, 20 )
+rotation = 3.0871
+scale = Vector2( 1, 1.36 )
+time = 0.7
+invert = true
+
+[node name="grass_small" parent="platforms" instance=ExtResource( 6 )]
+position = Vector2( -1843, -95 )
+
+[node name="grass_small5" parent="platforms" instance=ExtResource( 6 )]
+position = Vector2( -1767, -95 )
+
+[node name="grass_small4" parent="platforms" instance=ExtResource( 6 )]
+position = Vector2( -1903, 76 )
+
+[node name="grass_small2" parent="platforms" instance=ExtResource( 6 )]
+position = Vector2( -1862, -209 )
+rotation = -0.785397
+scale = Vector2( 0.619601, 0.732736 )
+
+[node name="grass_small3" parent="platforms" instance=ExtResource( 6 )]
+position = Vector2( -1824, -209 )
+rotation = 0.785397
+scale = Vector2( 0.619601, 0.732736 )
+
+[node name="grass_large" parent="platforms" instance=ExtResource( 7 )]
+position = Vector2( -1615, 20 )
+
+[node name="prometeus" parent="platforms" instance=ExtResource( 8 )]
+position = Vector2( -1880, -153 )
+scale = Vector2( 0.59999, 0.560001 )
+
+[node name="prometeus7" parent="platforms" instance=ExtResource( 5 )]
+
+[node name="prometeus8" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2000, 152 )
+float_amount = 3.5
+
+[node name="prometeus11" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2038, 134 )
+float_amount = 4.0
+time = 0.5
+
+[node name="prometeus13" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2076, 131 )
+float_amount = 3.5
+
+[node name="prometeus15" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2114, 118 )
+float_amount = 2.0
+time = 4.0
+
+[node name="prometeus17" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2152, 115 )
+float_amount = 3.5
+time = 0.5
+
+[node name="prometeus9" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2000, -114 )
+float_amount = 3.5
+
+[node name="prometeus10" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2038, -132 )
+float_amount = 4.0
+time = 0.5
+
+[node name="prometeus12" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2076, -135 )
+float_amount = 3.5
+
+[node name="prometeus14" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2114, -148 )
+float_amount = 2.0
+time = 4.0
+
+[node name="prometeus16" parent="platforms" instance=ExtResource( 5 )]
+position = Vector2( -2152, -151 )
+float_amount = 3.5
+time = 0.5
+
+[node name="objects" type="Node" parent="."]
+
+[node name="PrometeusReveal" type="Area2D" parent="objects"]
+editor/display_folded = true
+position = Vector2( -1843, -152 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/PrometeusReveal"]
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="objects"]
+position = Vector2( -816, -44 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Area2D2" type="Area2D" parent="objects"]
+position = Vector2( -1900, 19 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/Area2D2"]
+shape = SubResource( 2 )
+
