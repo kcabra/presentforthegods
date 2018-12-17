@@ -1,0 +1,64 @@
+extends KinematicBody2D
+
+enum Directions {UP_DOWN, LEFT_RIGHT}
+export (Directions) var orientation = Directions.UP_DOWN
+export (int) var float_amount = 100 # how much it moves to each side
+export (float) var time = 1.0 # how long it takes to go from one edge to the other
+export (bool) var invert = false
+export (float, 0, 1) var offset = 0 # offset in percentage from 0 to 1
+var is_active = false
+
+var init_pos
+var up_edge
+var bot_edge
+
+var current = true # true is going, false is comming back
+
+onready var tween = Tween.new()
+
+func _ready():
+	# tween
+	add_child(tween)
+	connect("tween_completed", tween, "tween_next")
+	
+	# invertion
+	if invert: current = !current
+	
+	# calculate positions
+	init_pos = position
+	match orientation:
+		Directions.UP_DOWN:
+			up_edge = init_pos + Vector2(0, -float_amount)
+			bot_edge = init_pos + Vector2(0, float_amount)
+		
+		Directions.LEFT_RIGHT:
+			up_edge = init_pos + Vector2(-float_amount, 0)
+			bot_edge = init_pos + Vector2(float_amount, 0)
+	
+	tween_next()
+
+func tween_next():
+	var initial
+	var final
+	
+	match current:
+		true:
+			initial = bot_edge
+			final = up_edge
+		false:
+			initial = up_edge
+			final = bot_edge
+	
+	position = initial
+	yield(get_tree().create_timer(time), "timeout")
+	position = final
+	current = !current
+	tween_next()
+
+func move():
+	is_active = true
+	pass
+	
+func stop():
+	is_active = false
+	pass

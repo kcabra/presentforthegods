@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="present-of-the-gods"
-run/main_scene="res://scenes/PlatformTest.tscn"
+run/main_scene="res://scenes/levels/PlatformTest.tscn"
 config/icon="res://icon.png"
 
 [display]
