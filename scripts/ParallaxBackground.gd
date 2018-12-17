@@ -1,6 +1,5 @@
-extends ParallaxBackground
+extends Node
 
 func _ready():
-	var children = self.get_children()
-	for node in children:
+	for node in get_children():
 		node.visible = true

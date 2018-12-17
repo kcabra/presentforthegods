@@ -1,12 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/ParallaxBackground.gd" type="Script" id=1]
-[ext_resource path="res://assets/bg/nord/ceun.png" type="Texture" id=2]
-[ext_resource path="res://assets/bg/nord/nuvensn.png" type="Texture" id=3]
-[ext_resource path="res://assets/bg/nord/terran.png" type="Texture" id=4]
-[ext_resource path="res://assets/bg/nord/aguan1.png" type="Texture" id=5]
+[ext_resource path="res://assets/bg/greek/ceug.png" type="Texture" id=2]
+[ext_resource path="res://assets/bg/nuvens.png" type="Texture" id=3]
+[ext_resource path="res://assets/bg/greek/terrag2.png" type="Texture" id=4]
+[ext_resource path="res://assets/bg/greek/foregroundgrego.png" type="Texture" id=5]
 
-[node name="NordBackground" type="ParallaxBackground"]
+[node name="GreekBackground" type="ParallaxBackground"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
@@ -36,17 +37,14 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 300 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 8000, 1000 )
+region_rect = Rect2( 0, 0, 8000, 628 )
 
-[node name="Water" type="ParallaxLayer" parent="."]
+[node name="Buildings" type="ParallaxLayer" parent="."]
 visible = false
-motion_scale = Vector2( 0.9, 0.5 )
+motion_scale = Vector2( 0.8, 1 )
 
-[node name="Sprite" type="Sprite" parent="Water"]
-visible = false
-scale = Vector2( 0.5, 0.5 )
+[node name="Sprite" type="Sprite" parent="Buildings"]
 texture = ExtResource( 5 )
-offset = Vector2( 0, 400 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 8000, 1000 )
+region_rect = Rect2( 0, 0, 3248, 632 )
 

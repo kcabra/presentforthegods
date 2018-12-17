@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/greek/grass_medium.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tiles/greek/prometeus_column.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tiles/greek/prometeus_column_BIG.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/tiles/greek/grass_large.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/GreekBackground.tscn" type="PackedScene" id=6]
 
 [node name="PrometeusTest" type="Node2D"]
 
@@ -53,4 +54,6 @@ invert = true
 
 [node name="grass_large" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1615, 20 )
+
+[node name="GreekBackground" parent="." instance=ExtResource( 6 )]
 

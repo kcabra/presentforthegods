@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrag2.png-eaea5d2a362100647814a04860e0b6a3.stex"
+path="res://.import/mimirhead.png-a77d3fdcdb9a4980147e75e6e717b608.stex"
 
 [deps]
 
-source_file="res://assets/bg/greek/terrag2.png"
-dest_files=[ "res://.import/terrag2.png-eaea5d2a362100647814a04860e0b6a3.stex" ]
+source_file="res://assets/items/mimirhead.png"
+dest_files=[ "res://.import/mimirhead.png-a77d3fdcdb9a4980147e75e6e717b608.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

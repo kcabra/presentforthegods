@@ -21,6 +21,7 @@ radius = 19.0
 [node name="PlatformTest" type="Node2D"]
 
 [node name="TestMap" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="grass-small" parent="TestMap" instance=ExtResource( 1 )]
 position = Vector2( -1292, 57 )
