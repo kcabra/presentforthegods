@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/tiles/nord/grass-large.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/nord/grass-small.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/cabeçademimir.tscn" type="PackedScene" id=3]
+
+[node name="ExitBuffer(Mimir)" type="Node"]
+
+[node name="grass-large18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5659.19, -140.461 )
+
+[node name="grass-large19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5995.91, -140.461 )
+
+[node name="grass-large9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6159.66, -307.726 )
+rotation = -1.5708
+
+[node name="grass-small24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5980.53, -572.715 )
+scale = Vector2( 1.5, 1 )
+
+[node name="grass-small21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5826.77, -364.921 )
+rotation = 1.5708
+scale = Vector2( 2, 1 )
+
+[node name="grass-small22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5833.25, -498.746 )
+rotation = -0.785398
+scale = Vector2( 2, 1 )
+
+[node name="grass-small23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6133.27, -503.064 )
+rotation = 0.785398
+scale = Vector2( 2, 1 )
+
+[node name="cabeçademimir2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 5983.61, -280.528 )
+
