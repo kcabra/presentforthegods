@@ -1,21 +1,29 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/pj.png" type="Texture" id=2]
-[ext_resource path="res://assets/player/jump.png" type="Texture" id=3]
-[ext_resource path="res://scripts/Player/PlayerSprite.gd" type="Script" id=4]
-[ext_resource path="res://scripts/Player/pivot.gd" type="Script" id=5]
-[ext_resource path="res://scripts/Player/PlayerItems.gd" type="Script" id=6]
+[ext_resource path="res://assets/player/walk1.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/walk2.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/walk3.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/jump.png" type="Texture" id=6]
+[ext_resource path="res://scripts/Player/PlayerSprite.gd" type="Script" id=7]
+[ext_resource path="res://scripts/Player/pivot.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Player/PlayerItems.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
@@ -35,7 +43,9 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
-script = ExtResource( 4 )
+animation = "idle"
+playing = true
+script = ExtResource( 7 )
 
 [node name="Hitbox-1" type="CollisionShape2D" parent="."]
 position = Vector2( 1.66667, 21.6667 )
@@ -43,7 +53,7 @@ scale = Vector2( 1, 0.952219 )
 shape = SubResource( 2 )
 
 [node name="Pivot" type="Position2D" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 8 )
 
 [node name="CameraOffset" type="Position2D" parent="Pivot"]
 position = Vector2( 245.379, -0.378937 )
@@ -62,5 +72,5 @@ visible = false
 position = Vector2( 3, 32 )
 enabled = true
 collision_mask = 2
-script = ExtResource( 6 )
+script = ExtResource( 9 )
 

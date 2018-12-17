@@ -12,6 +12,10 @@ func _process(delta):
 		flip_h = true
 	
 	if player.is_on_floor():
-		animation = "default"
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+			animation = "walk"
+		else:
+			animation = "idle"
 	else:
 		animation = "jump"
+	
