@@ -44,15 +44,15 @@ region_enabled = true
 region_rect = Rect2( 228, 38, 76, 152 )
 
 [node name="prometeus2" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -170, -152 )
+position = Vector2( -494, 0 )
+rotation = 1.57079
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 orientation = 1
-float_amount = 5
-time = 0.6
+time = 0.7
+invert = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="prometeus2"]
 position = Vector2( 2, 1 )
