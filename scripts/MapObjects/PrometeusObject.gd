@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 enum Directions {UP_DOWN, LEFT_RIGHT}
 export (Directions) var orientation = Directions.UP_DOWN
-export (float, 0, 20, 0.5) var float_amount = 5 # how much it moves to each side (in squares
+export (float, 0, 80, 0.5) var float_amount = 5 # how much it moves to each side (in squares
 export (float) var time = 1.0 # how long it takes to go from one edge to the other
 export (bool) var invert = false
 export (float, 0, 1) var offset = 0.5 # offset in percentage from 0 to 1
