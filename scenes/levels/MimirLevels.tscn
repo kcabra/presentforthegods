@@ -4,8 +4,10 @@
 [ext_resource path="res://scenes/tiles/nord/grass-small.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tiles/nord/mimir-small.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tiles/nord/grass-large.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/objects/cabeçademimir.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mimirlevel/item-mimir.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+
+
 
 
 
