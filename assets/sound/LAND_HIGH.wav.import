@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LAND_HIGH.wav-44d4ce66d38a70d1cd65b3d2418f41b2.sample"
+
+[deps]
+
+source_file="res://assets/sound/LAND_HIGH.wav"
+dest_files=[ "res://.import/LAND_HIGH.wav-44d4ce66d38a70d1cd65b3d2418f41b2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

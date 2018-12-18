@@ -6,6 +6,15 @@ const death_height = 700
 var has_mimir = false
 var has_prometeus = true
 
+#soundfx
+var audioplayerRUN = AudioStreamPlayer.new()
+var audioplayerJUMP = AudioStreamPlayer.new()
+var audioplayerLAND = AudioStreamPlayer.new()
+var audioplayerDEATH = AudioStreamPlayer.new()
+
+#airborne check
+var airborne = false
+
 #basic movement
 var mov_vector : Vector2
 export (int) var speed = 300
@@ -28,6 +37,10 @@ var save_pos
 
 func _ready():
 	save_pos = self.position
+	self.add_child(audioplayerJUMP)
+	self.add_child(audioplayerRUN)
+	self.add_child(audioplayerLAND)
+	self.add_child(audioplayerDEATH)
 	
 func _process(delta):
 	if camera.current != player_camera_active:
@@ -44,7 +57,28 @@ func _physics_process(delta):
 		playergaze.x = -1
 	else:
 		mov_vector.x = 0
+		
+	#walk fx	
+	if (Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_left")) and is_on_floor():
+		audioplayerRUN.stream = load("res://assets/sound/RUN.wav")
+		audioplayerRUN.play()
+	if (Input.is_action_just_released("move_right") and !Input.is_action_pressed("move_left")) or (Input.is_action_just_released("move_left") and !Input.is_action_pressed("move_right")) and is_on_floor():
+		audioplayerRUN.stop()
 	
+	#airborne check
+	if !is_on_floor():
+		airborne = true
+		audioplayerRUN.stop()
+	
+	# play land and run fx	
+	if is_on_floor() and airborne == true:
+		audioplayerLAND.stream = load("res://assets/sound/LAND_HIGH.wav")
+		audioplayerLAND.play()
+		if (Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left")):
+			audioplayerRUN.stream = load("res://assets/sound/RUN.wav")
+			audioplayerRUN.play()
+		airborne = false	
+		
 	# player looking down
 	if Input.is_action_pressed("ui_down"):
 		playergaze.y = 1
@@ -56,6 +90,9 @@ func _physics_process(delta):
 		tolerance_ground = tolerance_time
 	if Input.is_action_just_pressed("move_up"):
 		tolerance_jump = tolerance_time
+		if tolerance_jump > 0 and tolerance_ground > 0:
+			audioplayerJUMP.stream = load("res://assets/sound/JUMP_HIGH.wav") # play jump fx
+			audioplayerJUMP.play()
 	if tolerance_jump > 0 and tolerance_ground > 0:
 		mov_vector.y = jump_size
 
@@ -77,6 +114,8 @@ func _physics_process(delta):
 	#death
 	if position.y >= death_height:
 		position = save_pos
+		audioplayerDEATH.stream = load("res://assets/sound/GAME_OVER.wav") #play death fx
+		audioplayerDEATH.play()
 	
 	# reset pos (debug)
 	if Input.is_action_just_pressed("ui_page_up"):
