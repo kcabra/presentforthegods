@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/tiles/nord/grass-large.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/nord/grass-small.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/objects/cabeçademimir.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mimirlevel/item-mimir.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/tiles/nordaltar.png" type="Texture" id=4]
 
 [node name="ExitBuffer(Mimir)" type="Node"]
 
@@ -20,21 +21,33 @@ rotation = -1.5708
 position = Vector2( 5980.53, -572.715 )
 scale = Vector2( 1.5, 1 )
 
+[node name="grass-small22" parent="grass-small24" instance=ExtResource( 2 )]
+position = Vector2( -98.1865, 73.969 )
+rotation = -0.982794
+scale = Vector2( 1.69967, 0.849837 )
+
+[node name="grass-small23" parent="grass-small24" instance=ExtResource( 2 )]
+position = Vector2( 101.827, 69.651 )
+rotation = 0.982794
+scale = Vector2( 1.69967, 0.849837 )
+
 [node name="grass-small21" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5826.77, -364.921 )
 rotation = 1.5708
 scale = Vector2( 2, 1 )
 
-[node name="grass-small22" parent="." instance=ExtResource( 2 )]
-position = Vector2( 5833.25, -498.746 )
-rotation = -0.785398
-scale = Vector2( 2, 1 )
-
-[node name="grass-small23" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6133.27, -503.064 )
-rotation = 0.785398
-scale = Vector2( 2, 1 )
-
 [node name="cabeçademimir2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 5983.61, -280.528 )
+position = Vector2( 5985, -237.998 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 5984.75, -240.634 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+z_index = -2
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( 177.594, 354.692, 134.215, 114.297, -143.234, 114.297, -180.289, 356.5 )
 
