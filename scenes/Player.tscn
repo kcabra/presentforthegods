@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/pj.png" type="Texture" id=2]
@@ -8,7 +8,9 @@
 [ext_resource path="res://assets/player/walk3.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Player/PlayerSprite.gd" type="Script" id=7]
 [ext_resource path="res://scripts/Player/pivot.gd" type="Script" id=8]
-[ext_resource path="res://scripts/Player/PlayerItems.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Player/CameraOffset.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Player/PlayerItems.gd" type="Script" id=10]
+[ext_resource path="res://scripts/AudioControl.gd" type="Script" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -47,19 +49,25 @@ animation = "idle"
 playing = true
 script = ExtResource( 7 )
 
-[node name="Hitbox-1" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 1.66667, 21.6667 )
 scale = Vector2( 1, 0.952219 )
 shape = SubResource( 2 )
 
-[node name="Pivot" type="Position2D" parent="."]
+[node name="CameraPivot" type="Position2D" parent="."]
+editor/display_folded = true
+visible = false
 script = ExtResource( 8 )
 
-[node name="CameraOffset" type="Position2D" parent="Pivot"]
-position = Vector2( 245.379, -0.378937 )
+[node name="CameraOffset" type="Position2D" parent="CameraPivot"]
+editor/display_folded = true
+position = Vector2( 250, 0 )
+script = ExtResource( 9 )
 
-[node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset"]
+[node name="Camera2D" type="Camera2D" parent="CameraPivot/CameraOffset"]
 smoothing_enabled = true
+smoothing_speed = 6.0
 drag_margin_top = 0.1
 drag_margin_bottom = 0.1
 editor_draw_drag_margin = true
@@ -69,8 +77,12 @@ __meta__ = {
 
 [node name="Items" type="RayCast2D" parent="."]
 visible = false
-position = Vector2( 3, 32 )
+position = Vector2( 0, 32 )
 enabled = true
 collision_mask = 2
-script = ExtResource( 9 )
+script = ExtResource( 10 )
+
+[node name="AudioControl" type="Node" parent="."]
+script = ExtResource( 11 )
+master_fx_volume = -23
 

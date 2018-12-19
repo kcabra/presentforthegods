@@ -2,18 +2,11 @@ extends KinematicBody2D
 
 const death_height = 700
 
+signal player_dead
+
 #item and progression
 var has_mimir = false
 var has_prometeus = true
-
-#soundfx
-var audioplayerRUN = AudioStreamPlayer.new()
-var audioplayerJUMP = AudioStreamPlayer.new()
-var audioplayerLAND = AudioStreamPlayer.new()
-var audioplayerDEATH = AudioStreamPlayer.new()
-
-#airborne check
-var airborne = false
 
 #basic movement
 var mov_vector : Vector2
@@ -23,8 +16,8 @@ export (int) var gravity = 50
 export (int) var max_gravity = 600
 
 #camera
-onready var camera = $"Pivot/CameraOffset/Camera2D"
-export (bool) var player_camera_active = true
+onready var camera = $"CameraPivot/CameraOffset/Camera2D"
+export (bool) var camera_active = true
 var playergaze : Vector2
 
 #movement tolerance
@@ -33,19 +26,18 @@ var tolerance_jump = 0
 var tolerance_ground = 0
 
 #debug
-var save_pos
+export (Vector2) var save_pos
 
 func _ready():
+	self.add_to_group("player")
 	save_pos = self.position
-	self.add_child(audioplayerJUMP)
-	self.add_child(audioplayerRUN)
-	self.add_child(audioplayerLAND)
-	self.add_child(audioplayerDEATH)
 	
 func _process(delta):
-	if camera.current != player_camera_active:
-		camera.current = player_camera_active
+	if camera.current != camera_active:
+		camera.current = camera_active
+		camera.smoothing_enabled = false
 		camera.align()
+		camera.smoothing_enabled = true
 
 func _physics_process(delta):
 	# side movement and player gaze
@@ -57,28 +49,7 @@ func _physics_process(delta):
 		playergaze.x = -1
 	else:
 		mov_vector.x = 0
-		
-	#walk fx	
-	if (Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_left")) and is_on_floor():
-		audioplayerRUN.stream = load("res://assets/sound/RUN.wav")
-		audioplayerRUN.play()
-	if (Input.is_action_just_released("move_right") and !Input.is_action_pressed("move_left")) or (Input.is_action_just_released("move_left") and !Input.is_action_pressed("move_right")) and is_on_floor():
-		audioplayerRUN.stop()
 	
-	#airborne check
-	if !is_on_floor():
-		airborne = true
-		audioplayerRUN.stop()
-	
-	# play land and run fx	
-	if is_on_floor() and airborne == true:
-		audioplayerLAND.stream = load("res://assets/sound/LAND_HIGH.wav")
-		audioplayerLAND.play()
-		if (Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left")):
-			audioplayerRUN.stream = load("res://assets/sound/RUN.wav")
-			audioplayerRUN.play()
-		airborne = false	
-		
 	# player looking down
 	if Input.is_action_pressed("ui_down"):
 		playergaze.y = 1
@@ -91,8 +62,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("move_up"):
 		tolerance_jump = tolerance_time
 		if tolerance_jump > 0 and tolerance_ground > 0:
-			audioplayerJUMP.stream = load("res://assets/sound/JUMP_HIGH.wav") # play jump fx
-			audioplayerJUMP.play()
+			$AudioControl.jump()
 	if tolerance_jump > 0 and tolerance_ground > 0:
 		mov_vector.y = jump_size
 
@@ -113,12 +83,17 @@ func _physics_process(delta):
 	
 	#death
 	if position.y >= death_height:
-		position = save_pos
-		audioplayerDEATH.stream = load("res://assets/sound/GAME_OVER.wav") #play death fx
-		audioplayerDEATH.play()
+		emit_signal("player_dead")
+		teleport(save_pos)
+		$AudioControl.die()
 	
 	# reset pos (debug)
 	if Input.is_action_just_pressed("ui_page_up"):
 		save_pos = self.position
 	if Input.is_action_just_pressed("ui_page_down"):
-		position = save_pos
+		teleport(save_pos)
+	
+func teleport(new_position : Vector2):
+	camera.smoothing_enabled = false
+	self.position = new_position
+	camera.smoothing_enabled = true

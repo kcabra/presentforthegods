@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/tiles/greek/grass_medium.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/greek/prometeus_column.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/greek/prometeus_column_BIG.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/greek/grass_large.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tiles/greek/regular_column.tscn" type="PackedScene" id=5]
+
+[node name="PrometeusLevel (EntryBuffer)" type="Node2D"]
+
+[node name="grass_medium" parent="." instance=ExtResource( 1 )]
+position = Vector2( 171, 1 )
+
+[node name="grass_medium2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -171, 1 )
+
+[node name="prometeus2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -475, 0 )
+rotation = 1.57079
+orientation = 1
+time = 0.7
+
+[node name="prometeus7" parent="." instance=ExtResource( 3 )]
+
+[node name="grass_large" parent="." instance=ExtResource( 4 )]
+position = Vector2( 399, 1 )
+
+[node name="prometeus" parent="." instance=ExtResource( 5 )]
+position = Vector2( 686, -79 )
+rotation = -0.15861
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+
+[node name="prometeus4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 453, -24 )
+rotation = -1.57079
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+
+[node name="prometeus3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 301, -94 )
+rotation = 0.138135
+scale = Vector2( 1, 1.39068 )
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+
+[node name="grass_large2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 700, 1 )
+

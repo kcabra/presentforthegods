@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scripts/Master.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirEntryBuffer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Map/MimirEntryBuffer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/MapObjects/PlayerDetectorArea.gd" type="Script" id=4]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirLevelIda.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusEntryBuffer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/Map/PrometeusEntryBuffer.gd" type="Script" id=7]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusLevelIda.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/levels/PlayerRoom.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/Map/PlayerRoom.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 344.553, 116.83 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 331.562, 101.937 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 334.152, 182.88 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="MimirLevel" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1125.78, 392.548 )
+script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="MimirLevel"]
+editor/display_folded = true
+position = Vector2( 6.78821, -106.642 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MimirLevel/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Mountpoint" type="Node2D" parent="MimirLevel"]
+position = Vector2( 333.335, -4.35388 )
+
+[node name="Node2D" parent="MimirLevel/Mountpoint" instance=ExtResource( 5 )]
+
+[node name="PrometeusLevel" parent="." instance=ExtResource( 6 )]
+position = Vector2( -698.561, 420.066 )
+script = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="PrometeusLevel"]
+editor/display_folded = true
+position = Vector2( 505.97, -111.23 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrometeusLevel/Area2D"]
+position = Vector2( 10.5516, -1.50739 )
+shape = SubResource( 3 )
+
+[node name="Mountpoint" type="Node2D" parent="PrometeusLevel"]
+position = Vector2( -698.959, 9.41669 )
+
+[node name="PrometeusIda" parent="PrometeusLevel/Mountpoint" instance=ExtResource( 8 )]
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 534.762, 348.086 )
+
+[node name="PlayerRoom" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="PlayerRoom"]
+editor/display_folded = true
+visible = false
+position = Vector2( 488.953, 270.775 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRoom/Area2D"]
+position = Vector2( -4.21057, 1.05264 )
+shape = SubResource( 1 )
+

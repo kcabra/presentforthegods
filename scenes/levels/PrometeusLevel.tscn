@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Map/PrometeusLevel.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/GreekBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/PrometeusBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/prometeuslevel/ExitBuffer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/tiles/greek/grass_medium.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tiles/greek/prometeus_column.tscn" type="PackedScene" id=6]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scripts/MapObjects/PrometeusShrine.gd" type="Script" id=11]
 [ext_resource path="res://scripts/MapObjects/Checkpoint.gd" type="Script" id=12]
 [ext_resource path="res://scenes/tiles/nord/mimir-large.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
