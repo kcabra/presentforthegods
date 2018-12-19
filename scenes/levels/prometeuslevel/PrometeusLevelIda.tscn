@@ -9,6 +9,8 @@
 [ext_resource path="res://scripts/MapObjects/PrometeusShrine.gd" type="Script" id=7]
 [ext_resource path="res://scripts/MapObjects/Checkpoint.gd" type="Script" id=8]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 38, 57 )

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/run.wav-d41ebe245945f3505c35ec53cc5515f1.sample"
+
+[deps]
+
+source_file="res://assets/sound/fx/run.wav"
+dest_files=[ "res://.import/run.wav-d41ebe245945f3505c35ec53cc5515f1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/levels/PlayerRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/PlayerLocationUpdater.gd" type="Script" id=2]
+[ext_resource path="res://scripts/MapObjects/PlayerDetectorArea.gd" type="Script" id=3]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirEntryBuffer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirExitBuffer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusEntryBuffer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusExitBuffer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/Soundtrack.gd" type="Script" id=9]
+[ext_resource path="res://scripts/BackgroundControl.gd" type="Script" id=10]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+var player_location = \"PlayerRoom\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 297.016, 172.901 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 3312, 970 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 3101, 758 )
+
+[node name="Game" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="PlayerRoom" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Boundaries" type="Area2D" parent="PlayerRoom"]
+editor/display_folded = true
+visible = false
+position = Vector2( 492.984, 272.901 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRoom/Boundaries"]
+position = Vector2( -8, -6 )
+shape = SubResource( 2 )
+
+[node name="Mimir" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1142.45, 391.662 )
+script = ExtResource( 2 )
+
+[node name="ExitBuffer(Mimir)" parent="Mimir" instance=ExtResource( 5 )]
+position = Vector2( -5018.45, 137.338 )
+
+[node name="Boundaries" type="Area2D" parent="Mimir"]
+editor/display_folded = true
+visible = false
+position = Vector2( 3538.58, 12.3906 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mimir/Boundaries"]
+position = Vector2( -554.03, 102.947 )
+shape = SubResource( 3 )
+
+[node name="Prometeus" parent="." instance=ExtResource( 6 )]
+position = Vector2( -700, 420 )
+script = ExtResource( 2 )
+
+[node name="PrometeusLevel (ExitBuffer)" parent="Prometeus" instance=ExtResource( 7 )]
+position = Vector2( 3049.31, 34.821 )
+
+[node name="Boundaries" type="Area2D" parent="Prometeus"]
+editor/display_folded = true
+visible = false
+position = Vector2( -2804.46, 109.442 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prometeus/Boundaries"]
+position = Vector2( 556.768, -13.621 )
+shape = SubResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( 531.871, 339.635 )
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 9 )
+mute = true
+
+[node name="BackgroundControl" type="Node" parent="."]
+script = ExtResource( 10 )
+

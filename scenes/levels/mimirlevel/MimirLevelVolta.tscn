@@ -7,7 +7,10 @@
 [ext_resource path="res://scenes/tiles/nord/grass-large.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tiles/nord/mimir-large.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/MapObjects/Checkpoint.gd" type="Script" id=7]
-[ext_resource path="res://scenes/MimirBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/backgrounds/MimirBackground.tscn" type="PackedScene" id=8]
+
+
+
 
 
 

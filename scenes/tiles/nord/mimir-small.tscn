@@ -4,6 +4,8 @@
 [ext_resource path="res://assets/tiles/nord_tiles.png" type="Texture" id=2]
 
 
+
+
 [node name="mimir-small" type="RigidBody2D"]
 position = Vector2( 76, 152 )
 mode = 1

@@ -19,5 +19,5 @@ func _process(delta):
 	
 func change_track():
 	currentTrack = game.player_location
-	stream = load("res://assets/sound/" + currentTrack + ".wav")
+	stream = load("res://assets/sound/ost/" + currentTrack + ".wav")
 	play()

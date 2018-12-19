@@ -93,6 +93,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_page_down"):
 		teleport(save_pos)
 	
+func got_item():
+	$AudioControl.got_item()
+
 func teleport(new_position : Vector2):
 	camera.smoothing_enabled = false
 	self.position = new_position
