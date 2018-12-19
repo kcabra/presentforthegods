@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="present-from-the-gods"
-run/main_scene="res://scenes/Game.tscn"
+run/main_scene="res://scenes/Title.tscn"
 boot_splash/image="res://assets/titles/presentfromthegods.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.223529, 0.223529, 0.223529, 1 )

@@ -57,3 +57,11 @@ func die():
 
 func got_item():
 	item_fx.play()
+
+func change_volume(volume):
+	master_fx_volume = volume
+	run_fx.volume_db = master_fx_volume
+	jump_fx.volume_db = master_fx_volume
+	land_fx.volume_db = master_fx_volume
+	death_fx.volume_db = master_fx_volume
+	item_fx.volume_db = master_fx_volume

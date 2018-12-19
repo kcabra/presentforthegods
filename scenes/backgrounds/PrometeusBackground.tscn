@@ -6,8 +6,6 @@
 [ext_resource path="res://assets/bg/greek/terragfinal.png" type="Texture" id=4]
 [ext_resource path="res://assets/bg/greek/foregroundgrego.png" type="Texture" id=5]
 
-
-
 [node name="PrometeusBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )
 
@@ -37,7 +35,7 @@ motion_offset = Vector2( -2000, 0 )
 [node name="Sprite" type="Sprite" parent="Mountains"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
-offset = Vector2( 0, 900 )
+offset = Vector2( -300, 900 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 8500, 1900 )
 

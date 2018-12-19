@@ -84,5 +84,5 @@ script = ExtResource( 10 )
 
 [node name="AudioControl" type="Node" parent="."]
 script = ExtResource( 11 )
-master_fx_volume = -23
+master_fx_volume = -17
 
