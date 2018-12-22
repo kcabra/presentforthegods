@@ -5,8 +5,6 @@
 [ext_resource path="res://assets/bg/nord/nuvensn.png" type="Texture" id=3]
 [ext_resource path="res://assets/bg/nord/terranfinal.png" type="Texture" id=4]
 
-
-
 [node name="MimirBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )
 

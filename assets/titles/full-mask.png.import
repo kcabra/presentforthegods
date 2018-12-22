@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/full-mask.png-b20c6f6fdf39a2b1d03ce47444a6405f.stex"
+path="res://.import/full-mask.png-63c64004360640bcf978a579b37bf3c4.stex"
 
 [deps]
 
-source_file="res://assets/bg/full-mask.png"
-dest_files=[ "res://.import/full-mask.png-b20c6f6fdf39a2b1d03ce47444a6405f.stex" ]
+source_file="res://assets/titles/full-mask.png"
+dest_files=[ "res://.import/full-mask.png-63c64004360640bcf978a579b37bf3c4.stex" ]
 
 [params]
 

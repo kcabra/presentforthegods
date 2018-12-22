@@ -2,16 +2,15 @@ todo:
 DONE - fix cam
 DONE - fix backgrounds >>> sofaia, temples
 DONE - room mask
-minor clean up
-fix git <<<<<<<<<<< beta 1
-write title cards
-improv camera
+DONE - minor clean up
+DONE - fix git <<<<<<<<<<< beta 1
+DONE - write title cards
 fix tiles
 sound crossfade
 DONE - background crossfade
 write victory (room shrines)
-shrine revamp (item animation, shrine assets, cutscene)
-major clean up git and filetree
+shrine revamp (item animation, shrine assets
+improv camera, cutscenes
 implementar volta (item animation) <<<<<< release
 setup editor for mass usage
 write tutorials on git and level editor

@@ -1,18 +1,19 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://scenes/levels/PlayerRoom.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/PlayerLocationUpdater.gd" type="Script" id=3]
-[ext_resource path="res://scripts/MapObjects/PlayerDetectorArea.gd" type="Script" id=4]
-[ext_resource path="res://scenes/levels/mimirlevel/MimirEntryBuffer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/levels/mimirlevel/MimirLevelIda.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/levels/mimirlevel/MimirExitBuffer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusEntryBuffer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusLevelIda.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusExitBuffer.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/Soundtrack.gd" type="Script" id=12]
-[ext_resource path="res://scripts/BackgroundControl.gd" type="Script" id=13]
+[ext_resource path="res://assets/titles/full-mask.png" type="Texture" id=2]
+[ext_resource path="res://scenes/levels/PlayerRoom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/PlayerLocationUpdater.gd" type="Script" id=4]
+[ext_resource path="res://scripts/MapObjects/PlayerDetectorArea.gd" type="Script" id=5]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirEntryBuffer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirLevelIda.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/levels/mimirlevel/MimirExitBuffer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusEntryBuffer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusLevelIda.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/prometeuslevel/PrometeusExitBuffer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/Soundtrack.gd" type="Script" id=13]
+[ext_resource path="res://scripts/BackgroundControl.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,62 +30,73 @@ extents = Vector2( 3101, 758 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="PlayerRoom" parent="." instance=ExtResource( 2 )]
+[node name="start_fade_in" type="Sprite" parent="."]
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0 )
+z_index = 2
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PlayerRoom" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Boundaries" type="Area2D" parent="PlayerRoom"]
 position = Vector2( 492.984, 272.901 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRoom/Boundaries"]
 position = Vector2( -8, -6 )
 shape = SubResource( 1 )
 
-[node name="Mimir" parent="." instance=ExtResource( 5 )]
+[node name="Mimir" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 1142.45, 391.662 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="Ida" parent="Mimir" instance=ExtResource( 6 )]
+[node name="Ida" parent="Mimir" instance=ExtResource( 7 )]
 position = Vector2( 324.626, -3.521 )
 
-[node name="ExitBuffer(Mimir)" parent="Mimir" instance=ExtResource( 7 )]
+[node name="ExitBuffer(Mimir)" parent="Mimir" instance=ExtResource( 8 )]
 position = Vector2( -187.462, -50.4705 )
 
 [node name="Boundaries" type="Area2D" parent="Mimir"]
 position = Vector2( 3538.58, 12.3906 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mimir/Boundaries"]
 position = Vector2( -554.03, 102.947 )
 shape = SubResource( 2 )
 
-[node name="Prometeus" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
+[node name="Prometeus" parent="." instance=ExtResource( 9 )]
 position = Vector2( -699, 420 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="PrometeusIda" parent="Prometeus" instance=ExtResource( 9 )]
+[node name="PrometeusIda" parent="Prometeus" instance=ExtResource( 10 )]
 position = Vector2( -689.169, -1.67017 )
 
-[node name="PrometeusLevel (ExitBuffer)" parent="Prometeus" instance=ExtResource( 10 )]
+[node name="PrometeusLevel (ExitBuffer)" parent="Prometeus" instance=ExtResource( 11 )]
 position = Vector2( -102.841, 88.4913 )
 
 [node name="Boundaries" type="Area2D" parent="Prometeus"]
 position = Vector2( -2804.46, 109.442 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prometeus/Boundaries"]
 position = Vector2( 556.768, -13.621 )
 shape = SubResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 11 )]
+[node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 531.871, 339.635 )
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 
 [node name="BackgroundControl" type="Node" parent="."]
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 

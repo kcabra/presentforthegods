@@ -16,7 +16,7 @@ func change_background():
 	# fade_out > update > fade_in
 	if current_background != "PlayerRoom":
 		previous_background = get_node(current_background + "Background")
-		previous_background.queue_free()
+		previous_background.fade_out()
 	
 	current_background = game.player_location # update current_background
 	
