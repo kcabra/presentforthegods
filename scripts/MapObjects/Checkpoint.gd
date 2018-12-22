@@ -7,5 +7,5 @@ func _ready():
 
 func save(player):
 	if player.name == "Player" and !saved:
-		player.save_pos = player.position
+		player.save_pos = self.global_position
 		saved = true
